@@ -2,7 +2,8 @@ import java.lang.Math.*;
 import java.util.HashMap;
 public class player {
     //these are the variables that will be used to set cards for the the player
-    
+    // "topcard" == face up card
+    // "bottomcard" == face down card
     int BottomCard = 0;
     int TopCard = 0;
     String topcard = "";
@@ -31,7 +32,10 @@ public class player {
 
     //returnable methods
     
-
+    /**
+     * this method will be used to retrieve the top card information
+     * @return String 
+     */
     public String getTop(){
         if (TopCard > 10 && TopCard < 14){
         
@@ -47,7 +51,10 @@ public class player {
         }
         return "top card is " + TopCard;
     }
-
+    /**
+     * this method is used to retrieve bottom card information
+     * @return
+     */
     public String getBottom(){
         if (BottomCard > 10 && BottomCard < 14){
         
@@ -64,11 +71,18 @@ public class player {
         return "bottom card is " + BottomCard;
     }
 
-
+     /**
+      * this method will be used to view a specific player's top card 
+      * @param person which is a 
+      * @return String
+      */
     public String viewCard(player person){
         return "player " + person.getPlayerNum()+ "'s "  + person.getTop();
     }
-
+    /**
+     * this method will be used to retrieve a player's assigned number
+     * @return int playernumber
+     */
     public int getPlayerNum(){
         return playernumber;
     }
