@@ -10,7 +10,14 @@ public class BlackJack{
         // if (){} == game is being played. else{} == not being played
         if (ans == "yes" || ans == "yuh" || ans == "yeah"){
             System.out.println("Great! Who all will be joining us this evening?"):
+            int numplayers = scan.nextInt();
+            for (int i = 0; i < numplayers; i++){
+                System.out.println("What is player " + (i + 1) + "\'s name?");
+                String name = scan.nextLine();
+                player(name);
+            }
 
+            
         } else {
             System.out.println("ok have a nice night.");
         }
