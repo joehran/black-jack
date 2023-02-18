@@ -4,6 +4,7 @@ public class player {
     //these are the variables that will be used to set cards for the the player
     // "topcard" == face up card
     // "bottomcard" == face down card
+    String name;
     int BottomCard = 0;
     int TopCard = 0;
     String topcard = "";
@@ -16,7 +17,8 @@ public class player {
      * 2 extra variables are made to set the main variables. they will be set randomly between 1 and 13.
      * if either variable is higher than 10, it will be assigned accordingly to the "jack", "Queen", or "King".
      */
-    public player(){
+    public player(String person){
+        this.name = person;
         numplayers++;
         this.playernumber = numplayers;
         
@@ -37,16 +39,22 @@ public class player {
      * @return String 
      */
     public String getTop(){
-        if (TopCard > 10 && TopCard < 14){
+        if (TopCard > 10){
         
             if (TopCard == 11){
                 topcard = "Jack";
+                TopCard = 10;
             } else if (TopCard == 12){
                 topcard = "Queen";
-            } else {
+                TopCard = 10;
+            } else if (TopCard == 13){
                 topcard = "King";
+                TopCard = 10;
+            } else {
+                topcard = "Ace";
+                TopCard = 1;
             }
-            TopCard = 10;
+            
             return "top card is " + topcard;
         }
         return "top card is " + TopCard;
@@ -56,16 +64,22 @@ public class player {
      * @return
      */
     public String getBottom(){
-        if (BottomCard > 10 && BottomCard < 14){
+        if (BottomCard > 10){
         
             if (BottomCard == 11){
                 bottomcard = "Jack";
+                BottomCard = 10;
             } else if (BottomCard == 12){
                 bottomcard = "Queen";
-            } else {
+                BottomCard = 10;
+            } else if (BottomCard == 13){
                 bottomcard = "King";
-            }
-            BottomCard = 10;
+                BottomCard = 10;
+            } else {
+                bottomcard = "Ace";
+                BottomCard = 1;
+            }   
+    
             return "bottom card is " + bottomcard;
         }
         return "bottom card is " + BottomCard;
@@ -87,6 +101,13 @@ public class player {
         return playernumber;
     }
 
+    public void tap(){
+        int add = ((int)(Math.random() * 14) + 1); 
+        TopCard += add;
+    }
 
+    public int numofplayers(){
+        return numplayers;
+    }
 
 }
